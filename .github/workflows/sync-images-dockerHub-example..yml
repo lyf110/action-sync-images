@@ -34,8 +34,6 @@ jobs:
     - name: Use Skopeo Tools Sync Image to Docker Hub
       run: |
         #!/usr/bin/env bash
-        skopeo copy docker://docker.io/registry:2.4.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/registry:2.4.0
-        skopeo copy docker://docker.io/registry:2.4.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/registry:2.4.1
         skopeo copy docker://docker.io/registry:2.5 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/registry:2.5
         skopeo copy docker://docker.io/registry:2.5.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/registry:2.5.0
         skopeo copy docker://docker.io/registry:2.5.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/registry:2.5.1
