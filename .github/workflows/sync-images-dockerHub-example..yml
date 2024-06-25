@@ -34,7 +34,6 @@ jobs:
     - name: Use Skopeo Tools Sync Image to Docker Hub
       run: |
         #!/usr/bin/env bash
-        skopeo copy docker://docker.io/apache/kafka:3.7.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/apache_kafka:3.7.1
         skopeo copy docker://docker.io/apache/kafka:3.7.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/apache_kafka:3.7.0
         skopeo copy docker://docker.io/apache/kafka:3.3.2 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/apache_kafka:3.3.2
         skopeo copy docker://docker.io/apache/kafka:3.6.2 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/apache_kafka:3.6.2
