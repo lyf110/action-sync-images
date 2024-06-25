@@ -34,37 +34,6 @@ jobs:
     - name: Use Skopeo Tools Sync Image to Docker Hub
       run: |
         #!/usr/bin/env bash
-        skopeo copy docker://docker.io/registry:0.5.9 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/registry:0.5.9
-        skopeo copy docker://docker.io/registry:0.6.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/registry:0.6.0
-        skopeo copy docker://docker.io/registry:0.6.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/registry:0.6.1
-        skopeo copy docker://docker.io/registry:0.6.2 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/registry:0.6.2
-        skopeo copy docker://docker.io/registry:0.6.3 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/registry:0.6.3
-        skopeo copy docker://docker.io/registry:0.6.4 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/registry:0.6.4
-        skopeo copy docker://docker.io/registry:0.6.5 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/registry:0.6.5
-        skopeo copy docker://docker.io/registry:0.6.6 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/registry:0.6.6
-        skopeo copy docker://docker.io/registry:0.6.7 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/registry:0.6.7
-        skopeo copy docker://docker.io/registry:0.6.8 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/registry:0.6.8
-        skopeo copy docker://docker.io/registry:0.6.9 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/registry:0.6.9
-        skopeo copy docker://docker.io/registry:0.7.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/registry:0.7.0
-        skopeo copy docker://docker.io/registry:0.7.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/registry:0.7.1
-        skopeo copy docker://docker.io/registry:0.7.2 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/registry:0.7.2
-        skopeo copy docker://docker.io/registry:0.7.3 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/registry:0.7.3
-        skopeo copy docker://docker.io/registry:0.8.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/registry:0.8.0
-        skopeo copy docker://docker.io/registry:0.8.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/registry:0.8.1
-        skopeo copy docker://docker.io/registry:0.9.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/registry:0.9.0
-        skopeo copy docker://docker.io/registry:0.9.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/registry:0.9.1
-        skopeo copy docker://docker.io/registry:2 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/registry:2
-        skopeo copy docker://docker.io/registry:2.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/registry:2.0
-        skopeo copy docker://docker.io/registry:2.0.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/registry:2.0.0
-        skopeo copy docker://docker.io/registry:2.0.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/registry:2.0.1
-        skopeo copy docker://docker.io/registry:2.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/registry:2.1
-        skopeo copy docker://docker.io/registry:2.1.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/registry:2.1.1
-        skopeo copy docker://docker.io/registry:2.2 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/registry:2.2
-        skopeo copy docker://docker.io/registry:2.2.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/registry:2.2.0
-        skopeo copy docker://docker.io/registry:2.2.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/registry:2.2.1
-        skopeo copy docker://docker.io/registry:2.3 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/registry:2.3
-        skopeo copy docker://docker.io/registry:2.3.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/registry:2.3.0
-        skopeo copy docker://docker.io/registry:2.3.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/registry:2.3.1
         skopeo copy docker://docker.io/registry:2.4 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/registry:2.4
         skopeo copy docker://docker.io/registry:2.4.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/registry:2.4.0
         skopeo copy docker://docker.io/registry:2.4.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/registry:2.4.1
