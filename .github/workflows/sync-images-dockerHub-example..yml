@@ -34,4 +34,4 @@ jobs:
     - name: Use Skopeo Tools Sync Image to Docker Hub
       run: |
         #!/usr/bin/env bash
-        skopeo copy docker://docker.io/bitnami/kafka docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/bitnami_kafka
+        skopeo sync   --src docker --dest docker docker.io/bitnami/kafka registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/bitnami_kafka
