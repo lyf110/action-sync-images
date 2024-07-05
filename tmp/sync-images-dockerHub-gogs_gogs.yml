@@ -1,0 +1,94 @@
+# 工作流名称
+name: Sync-Images-to-DockerHub-Example
+# 工作流运行时显示名称
+run-name: ${{ github.actor }} is Sync Images to DockerHub.
+# 怎样触发工作流
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# 工作流程任务（通常含有一个或多个步骤）
+jobs:
+  syncimages:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repos
+      uses: actions/checkout@v3
+      
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2.9.1
+
+    - name: Login to Docker Hub
+      uses: docker/login-action@v2.2.0
+      with:
+        registry: ${{ secrets.DOCKER_REGISTRY }}
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        logout: false
+        
+    - name: Use Skopeo Tools Sync Image to Docker Hub
+      run: |
+        #!/usr/bin/env bash
+        echo "skopeo copy docker://docker.io/gogs/gogs:0.10.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.10.1"
+        skopeo copy docker://docker.io/gogs/gogs:0.10.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.10.1 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/gogs/gogs:0.10.18 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.10.18"
+        skopeo copy docker://docker.io/gogs/gogs:0.10.18 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.10.18 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/gogs/gogs:0.11 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.11"
+        skopeo copy docker://docker.io/gogs/gogs:0.11 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.11 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/gogs/gogs:0.11.19 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.11.19"
+        skopeo copy docker://docker.io/gogs/gogs:0.11.19 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.11.19 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/gogs/gogs:0.11.29 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.11.29"
+        skopeo copy docker://docker.io/gogs/gogs:0.11.29 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.11.29 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/gogs/gogs:0.11.34 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.11.34"
+        skopeo copy docker://docker.io/gogs/gogs:0.11.34 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.11.34 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/gogs/gogs:0.11.4 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.11.4"
+        skopeo copy docker://docker.io/gogs/gogs:0.11.4 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.11.4 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/gogs/gogs:0.11.43 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.11.43"
+        skopeo copy docker://docker.io/gogs/gogs:0.11.43 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.11.43 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/gogs/gogs:0.11.53 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.11.53"
+        skopeo copy docker://docker.io/gogs/gogs:0.11.53 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.11.53 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/gogs/gogs:0.11.66 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.11.66"
+        skopeo copy docker://docker.io/gogs/gogs:0.11.66 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.11.66 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/gogs/gogs:0.11.79 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.11.79"
+        skopeo copy docker://docker.io/gogs/gogs:0.11.79 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.11.79 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/gogs/gogs:0.11.86 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.11.86"
+        skopeo copy docker://docker.io/gogs/gogs:0.11.86 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.11.86 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/gogs/gogs:0.11.91 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.11.91"
+        skopeo copy docker://docker.io/gogs/gogs:0.11.91 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.11.91 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/gogs/gogs:0.12 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.12"
+        skopeo copy docker://docker.io/gogs/gogs:0.12 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.12 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/gogs/gogs:0.12.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.12.0"
+        skopeo copy docker://docker.io/gogs/gogs:0.12.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.12.0 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/gogs/gogs:0.12.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.12.1"
+        skopeo copy docker://docker.io/gogs/gogs:0.12.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.12.1 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/gogs/gogs:0.12.10 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.12.10"
+        skopeo copy docker://docker.io/gogs/gogs:0.12.10 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.12.10 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/gogs/gogs:0.12.11 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.12.11"
+        skopeo copy docker://docker.io/gogs/gogs:0.12.11 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.12.11 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/gogs/gogs:0.12.2 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.12.2"
+        skopeo copy docker://docker.io/gogs/gogs:0.12.2 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.12.2 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/gogs/gogs:0.12.3 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.12.3"
+        skopeo copy docker://docker.io/gogs/gogs:0.12.3 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.12.3 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/gogs/gogs:0.12.4 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.12.4"
+        skopeo copy docker://docker.io/gogs/gogs:0.12.4 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.12.4 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/gogs/gogs:0.12.5 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.12.5"
+        skopeo copy docker://docker.io/gogs/gogs:0.12.5 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.12.5 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/gogs/gogs:0.12.6 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.12.6"
+        skopeo copy docker://docker.io/gogs/gogs:0.12.6 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.12.6 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/gogs/gogs:0.12.7 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.12.7"
+        skopeo copy docker://docker.io/gogs/gogs:0.12.7 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.12.7 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/gogs/gogs:0.12.8 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.12.8"
+        skopeo copy docker://docker.io/gogs/gogs:0.12.8 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.12.8 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/gogs/gogs:0.12.9 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.12.9"
+        skopeo copy docker://docker.io/gogs/gogs:0.12.9 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.12.9 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/gogs/gogs:0.13 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.13"
+        skopeo copy docker://docker.io/gogs/gogs:0.13 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.13 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/gogs/gogs:0.13.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.13.0"
+        skopeo copy docker://docker.io/gogs/gogs:0.13.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.13.0 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/gogs/gogs:0.9.141 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.9.141"
+        skopeo copy docker://docker.io/gogs/gogs:0.9.141 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/gogs_gogs:0.9.141 || echo "skopeo copy failed, current task skip"

@@ -1,0 +1,140 @@
+# 工作流名称
+name: Sync-Images-to-DockerHub-Example
+# 工作流运行时显示名称
+run-name: ${{ github.actor }} is Sync Images to DockerHub.
+# 怎样触发工作流
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# 工作流程任务（通常含有一个或多个步骤）
+jobs:
+  syncimages:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repos
+      uses: actions/checkout@v3
+      
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2.9.1
+
+    - name: Login to Docker Hub
+      uses: docker/login-action@v2.2.0
+      with:
+        registry: ${{ secrets.DOCKER_REGISTRY }}
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        logout: false
+        
+    - name: Use Skopeo Tools Sync Image to Docker Hub
+      run: |
+        #!/usr/bin/env bash
+        echo "skopeo copy docker://docker.io/amazoncorretto:11.0.10 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:11.0.10"
+        skopeo copy docker://docker.io/amazoncorretto:11.0.10 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:11.0.10 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:11.0.11 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:11.0.11"
+        skopeo copy docker://docker.io/amazoncorretto:11.0.11 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:11.0.11 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:11.0.12 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:11.0.12"
+        skopeo copy docker://docker.io/amazoncorretto:11.0.12 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:11.0.12 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:11.0.13 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:11.0.13"
+        skopeo copy docker://docker.io/amazoncorretto:11.0.13 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:11.0.13 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:11.0.14 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:11.0.14"
+        skopeo copy docker://docker.io/amazoncorretto:11.0.14 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:11.0.14 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:11.0.15 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:11.0.15"
+        skopeo copy docker://docker.io/amazoncorretto:11.0.15 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:11.0.15 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:11.0.16 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:11.0.16"
+        skopeo copy docker://docker.io/amazoncorretto:11.0.16 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:11.0.16 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:11.0.17 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:11.0.17"
+        skopeo copy docker://docker.io/amazoncorretto:11.0.17 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:11.0.17 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:11.0.18 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:11.0.18"
+        skopeo copy docker://docker.io/amazoncorretto:11.0.18 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:11.0.18 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:11.0.19 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:11.0.19"
+        skopeo copy docker://docker.io/amazoncorretto:11.0.19 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:11.0.19 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:11.0.2 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:11.0.2"
+        skopeo copy docker://docker.io/amazoncorretto:11.0.2 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:11.0.2 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:11.0.20 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:11.0.20"
+        skopeo copy docker://docker.io/amazoncorretto:11.0.20 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:11.0.20 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:11.0.21 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:11.0.21"
+        skopeo copy docker://docker.io/amazoncorretto:11.0.21 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:11.0.21 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:11.0.22 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:11.0.22"
+        skopeo copy docker://docker.io/amazoncorretto:11.0.22 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:11.0.22 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:11.0.23 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:11.0.23"
+        skopeo copy docker://docker.io/amazoncorretto:11.0.23 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:11.0.23 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:11.0.3 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:11.0.3"
+        skopeo copy docker://docker.io/amazoncorretto:11.0.3 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:11.0.3 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:11.0.4 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:11.0.4"
+        skopeo copy docker://docker.io/amazoncorretto:11.0.4 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:11.0.4 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:11.0.5 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:11.0.5"
+        skopeo copy docker://docker.io/amazoncorretto:11.0.5 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:11.0.5 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:11.0.6 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:11.0.6"
+        skopeo copy docker://docker.io/amazoncorretto:11.0.6 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:11.0.6 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:11.0.7 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:11.0.7"
+        skopeo copy docker://docker.io/amazoncorretto:11.0.7 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:11.0.7 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:11.0.8 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:11.0.8"
+        skopeo copy docker://docker.io/amazoncorretto:11.0.8 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:11.0.8 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:11.0.9 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:11.0.9"
+        skopeo copy docker://docker.io/amazoncorretto:11.0.9 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:11.0.9 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:15.0.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:15.0.1"
+        skopeo copy docker://docker.io/amazoncorretto:15.0.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:15.0.1 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:15.0.2 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:15.0.2"
+        skopeo copy docker://docker.io/amazoncorretto:15.0.2 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:15.0.2 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:16.0.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:16.0.0"
+        skopeo copy docker://docker.io/amazoncorretto:16.0.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:16.0.0 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:16.0.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:16.0.1"
+        skopeo copy docker://docker.io/amazoncorretto:16.0.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:16.0.1 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:16.0.2 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:16.0.2"
+        skopeo copy docker://docker.io/amazoncorretto:16.0.2 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:16.0.2 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:17.0.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:17.0.0"
+        skopeo copy docker://docker.io/amazoncorretto:17.0.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:17.0.0 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:17.0.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:17.0.1"
+        skopeo copy docker://docker.io/amazoncorretto:17.0.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:17.0.1 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:17.0.10 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:17.0.10"
+        skopeo copy docker://docker.io/amazoncorretto:17.0.10 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:17.0.10 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:17.0.11 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:17.0.11"
+        skopeo copy docker://docker.io/amazoncorretto:17.0.11 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:17.0.11 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:17.0.2 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:17.0.2"
+        skopeo copy docker://docker.io/amazoncorretto:17.0.2 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:17.0.2 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:17.0.3 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:17.0.3"
+        skopeo copy docker://docker.io/amazoncorretto:17.0.3 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:17.0.3 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:17.0.4 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:17.0.4"
+        skopeo copy docker://docker.io/amazoncorretto:17.0.4 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:17.0.4 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:17.0.5 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:17.0.5"
+        skopeo copy docker://docker.io/amazoncorretto:17.0.5 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:17.0.5 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:17.0.6 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:17.0.6"
+        skopeo copy docker://docker.io/amazoncorretto:17.0.6 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:17.0.6 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:17.0.7 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:17.0.7"
+        skopeo copy docker://docker.io/amazoncorretto:17.0.7 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:17.0.7 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:17.0.8 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:17.0.8"
+        skopeo copy docker://docker.io/amazoncorretto:17.0.8 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:17.0.8 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:17.0.9 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:17.0.9"
+        skopeo copy docker://docker.io/amazoncorretto:17.0.9 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:17.0.9 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:18.0.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:18.0.0"
+        skopeo copy docker://docker.io/amazoncorretto:18.0.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:18.0.0 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:18.0.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:18.0.1"
+        skopeo copy docker://docker.io/amazoncorretto:18.0.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:18.0.1 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:18.0.2 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:18.0.2"
+        skopeo copy docker://docker.io/amazoncorretto:18.0.2 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:18.0.2 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:19.0.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:19.0.0"
+        skopeo copy docker://docker.io/amazoncorretto:19.0.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:19.0.0 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:19.0.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:19.0.1"
+        skopeo copy docker://docker.io/amazoncorretto:19.0.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:19.0.1 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:19.0.2 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:19.0.2"
+        skopeo copy docker://docker.io/amazoncorretto:19.0.2 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:19.0.2 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:20.0.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:20.0.0"
+        skopeo copy docker://docker.io/amazoncorretto:20.0.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:20.0.0 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:20.0.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:20.0.1"
+        skopeo copy docker://docker.io/amazoncorretto:20.0.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:20.0.1 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:20.0.2 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:20.0.2"
+        skopeo copy docker://docker.io/amazoncorretto:20.0.2 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:20.0.2 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:21.0.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:21.0.0"
+        skopeo copy docker://docker.io/amazoncorretto:21.0.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:21.0.0 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:21.0.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:21.0.1"
+        skopeo copy docker://docker.io/amazoncorretto:21.0.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:21.0.1 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:21.0.2 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:21.0.2"
+        skopeo copy docker://docker.io/amazoncorretto:21.0.2 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:21.0.2 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/amazoncorretto:21.0.3 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:21.0.3"
+        skopeo copy docker://docker.io/amazoncorretto:21.0.3 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/amazoncorretto:21.0.3 || echo "skopeo copy failed, current task skip"

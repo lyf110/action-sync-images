@@ -1,0 +1,160 @@
+# 工作流名称
+name: Sync-Images-to-DockerHub-Example
+# 工作流运行时显示名称
+run-name: ${{ github.actor }} is Sync Images to DockerHub.
+# 怎样触发工作流
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# 工作流程任务（通常含有一个或多个步骤）
+jobs:
+  syncimages:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repos
+      uses: actions/checkout@v3
+      
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2.9.1
+
+    - name: Login to Docker Hub
+      uses: docker/login-action@v2.2.0
+      with:
+        registry: ${{ secrets.DOCKER_REGISTRY }}
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        logout: false
+        
+    - name: Use Skopeo Tools Sync Image to Docker Hub
+      run: |
+        #!/usr/bin/env bash
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.24.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.24.1"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.24.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.24.1 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.25.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.25.0"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.25.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.25.0 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.25.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.25.1"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.25.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.25.1 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.25.2 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.25.2"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.25.2 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.25.2 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.25.3 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.25.3"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.25.3 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.25.3 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.26.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.26.0"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.26.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.26.0 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.27.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.27.0"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.27.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.27.0 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.27.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.27.1"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.27.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.27.1 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.28.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.28.0"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.28.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.28.0 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.28.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.28.1"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.28.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.28.1 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.28.2 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.28.2"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.28.2 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.28.2 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.29.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.29.0"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.29.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.29.0 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.29.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.29.1"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.29.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.29.1 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.30.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.30.0"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.30.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.30.0 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.31.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.31.0"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.31.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.31.0 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.31.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.31.1"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.31.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.31.1 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.31.2 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.31.2"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.31.2 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.31.2 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.32.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.32.0"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.32.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.32.0 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.32.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.32.1"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.32.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.32.1 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.33.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.33.0"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.33.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.33.0 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.34.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.34.0"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.34.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.34.0 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.34.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.34.1"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.34.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.34.1 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.34.2 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.34.2"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.34.2 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.34.2 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.34.3 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.34.3"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.34.3 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.34.3 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.35.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.35.0"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.35.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.35.0 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.35.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.35.1"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.35.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.35.1 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.36.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.36.0"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.36.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.36.0 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.36.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.36.1"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.36.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.36.1 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.36.2 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.36.2"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.36.2 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.36.2 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.37.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.37.0"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.37.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.37.0 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.37.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.37.1"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.37.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.37.1 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.38.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.38.0"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.38.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.38.0 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.39.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.39.0"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.39.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.39.0 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.39.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.39.1"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.39.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.39.1 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.40.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.40.0"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.40.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.40.0 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.41.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.41.0"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.41.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.41.0 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.42.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.42.0"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.42.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.42.0 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.43.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.43.0"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.43.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.43.0 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.44.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.44.0"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.44.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.44.0 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.45.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.45.0"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.45.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.45.0 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.46.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.46.0"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.46.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.46.0 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.46.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.46.1"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.46.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.46.1 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.47.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.47.0"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.47.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.47.0 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.48.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.48.0"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.48.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.48.0 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.49.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.49.0"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.49.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.49.0 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.50.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.50.0"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.50.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.50.0 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.51.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.51.0"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.51.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.51.0 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.51.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.51.1"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.51.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.51.1 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.51.2 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.51.2"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.51.2 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.51.2 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.51.3 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.51.3"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.51.3 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.51.3 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.52.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.52.0"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.52.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.52.0 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.52.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.52.1"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.52.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.52.1 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.52.2 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.52.2"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.52.2 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.52.2 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.52.3 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.52.3"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.52.3 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.52.3 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.53.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.53.0"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.53.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.53.0 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.53.2 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.53.2"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.53.2 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.53.2 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.54.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.54.0"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.54.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.54.0 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.55.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.55.1"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.55.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.55.1 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.56.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.56.0"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.56.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.56.0 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.57.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.57.0"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.57.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.57.0 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.58.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.58.0"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.58.0 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.58.0 || echo "skopeo copy failed, current task skip"
+        echo "skopeo copy docker://docker.io/snowdreamtech/frpc:0.58.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.58.1"
+        skopeo copy docker://docker.io/snowdreamtech/frpc:0.58.1 docker://registry.cn-hangzhou.aliyuncs.com/lyf110-docker-repo/snowdreamtech_frpc:0.58.1 || echo "skopeo copy failed, current task skip"
